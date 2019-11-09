@@ -32,6 +32,9 @@
 		<div class="loader"></div>
 	</div>
 	
+	<!-- Back-To-Top Button -->
+    <button onclick="topFunction()" id="myBtn"><img src="back-to-top-button.png" height="50" width="50"></img></button>
+	
 	<!-- header section start -->
 	<header class="header-section">
 		<div class="container">
@@ -75,7 +78,7 @@
 		<img src="img/portfolio/hi.png">
 		
 		
-		
+
 	</section>
 	<!-- intro section end -->
 
@@ -385,10 +388,8 @@
 			</div>
 		</div>
 </div>
-
-	<!-- Back-To-Top Button -->
-	<button onclick="topFunction()" id="myBtn"><img src="back-to-top-button.png" height="50" width="50"></img></button> 
 			
+		
 	<!-- page section end -->
 
 	<!-- footer section start -->
@@ -405,26 +406,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</footer>
 	<!-- footer section end -->
 
-	<script>
-		var mybutton = document.getElementById("myBtn");
 
-		window.onscroll = function() {scrollFunction()};
-
-		var thirdHeight = document.documentElement.scrollHeight/3;
-
-		function scrollFunction() {
-		  if (document.body.scrollTop > thirdHeight || document.documentElement.scrollTop > thirdHeight) {
-		    mybutton.style.display = "block";
-		  } else {
-		    mybutton.style.display = "none";
-		  }
-		}
-
-		function topFunction() {
-		  document.body.scrollTop = 0;
-		  document.documentElement.scrollTop = 0;
-		}
-	</script>
 
 	<!--====== Javascripts & Jquery ======-->
 	<script src="js/jquery-2.1.4.min.js"></script>
@@ -432,5 +414,25 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/mixitup.min.js"></script>
 	<script src="js/magnific-popup.min.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+        var mybutton = document.getElementById("myBtn");
+
+        window.onscroll = function() {scrollFunction()};
+
+        var thirdHeight = document.documentElement.scrollHeight/8;
+
+        function scrollFunction() {
+          if (document.body.scrollTop > thirdHeight || document.documentElement.scrollTop > thirdHeight) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+    </script>
 </body>
 </html>
