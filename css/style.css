@@ -152,6 +152,24 @@ ol {
 }
 
 /*=== Buttons ===*/
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 49%;
+  z-index: 100;
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+}
+
+#myBtn:hover {
+  background-color: #d3d3d3; 
+}
+
 .site-btn {
   display: inline-block;
   font-size: 14px;
