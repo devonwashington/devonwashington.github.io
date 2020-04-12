@@ -1,98 +1,105 @@
-/* =================================
-------------------------------------
-	Riddle - Portfolio
-	Version: 1.0
- ------------------------------------ 
- ====================================*/
+// AOS
+AOS.init({
+  duration: 1000,
+})
 
+jQuery(document).ready(function($){
+  'use strict';
 
+  
+  // Animsition
+  $(".animsition").animsition();
+  
+  // Scrollax
+  $.Scrollax();
 
-'use strict';
+  // Smooth scroll
+  var $root = $('html, body');
 
+  $('a.js-smoothscroll[href^="#"]').click(function () {
+    $root.animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top - 40
+    }, 500);
 
-$(window).on('load', function() { 
-	/*------------------
-		Preloder
-	--------------------*/
-	$(".loader").fadeOut(); 
-	$("#preloder").delay(400).fadeOut("slow");
+    return false;
+  });
 
-	if($('.portfolios-area').length > 0 ) {
-		var containerEl = document.querySelector('.portfolios-area');
-		var mixer = mixitup(containerEl);
-	}
+  // Owl
+  $('.wide-slider').owlCarousel({
+    loop:true,
+    autoplay: true,
+    margin:10,
+    animateOut: 'fadeOut',
+    animateIn: 'fadeIn',
+    nav:true,
+    autoplayHoverPause: false,
+    items: 1,
+    autoheight: true,
+    navText : ["<span class='ion-chevron-left'></span>","<span class='ion-chevron-right'></span>"],
+    responsive:{
+      0:{
+        items:1,
+        nav:false
+      },
+      600:{
+        items:1,
+        nav:false
+      },
+      1000:{
+        items:1,
+        nav:true
+      }
+    }
+  });
 
+  // Show menu 
+  if ($(window).width() > 768 ) {
+    $('body').removeClass('menu-open');
+    $('.js-templateux-menu').css('display', 'block');
+  }
+  // Window Resize
+  $(window).resize(function(){
+    var $this = $(this);
+    $('.js-templateux-menu li').removeClass('staggard');
+    $('.js-toggle-menu').removeClass('is-active');
+    if ($this.width() > 768 ) {
+      $('body').removeClass('menu-open');
+      $('.js-templateux-menu').css('display', 'block');
+      
+    } else {
+      if ($this.width() < 768 ) {
+        $('.js-templateux-menu').css('display', 'none');
+      }
+    }
+  });
+
+  // Hamburger Button 
+  $('.js-toggle-menu').on('click', function(e){
+  	e.preventDefault();
+  	
+    var $this = $(this);
+
+    if ($('body').hasClass('menu-open')) {
+      $this.removeClass('is-active');
+      $('body').removeClass('menu-open');  
+      $('.js-templateux-menu li').removeClass('staggard');
+    } else {
+      $this.addClass('is-active');
+      $('body').addClass('menu-open');  
+
+      $('.js-templateux-menu li').each(function(k){
+        var $this = $(this);
+        setTimeout(function(){
+          $this.addClass('staggard');
+        }, 100 * k );
+      });
+
+    }
+
+  	if ( $('.templateux-menu').is(':visible') ) {
+  		$('.js-templateux-menu').fadeOut(300);
+  	} else {
+  		$('.js-templateux-menu').fadeIn(300);
+  	}
+  })
 });
-
-
-(function($) {
-
-	/*------------------
-		Navigation
-	--------------------*/
-	$('.nav-switch').on('click', function(event) {
-		$('.main-menu').slideToggle(400);
-		event.preventDefault();
-	});
-
-
-
-	/*------------------
-		Background set
-	--------------------*/
-	$('.set-bg').each(function() {
-		var bg = $(this).data('setbg');
-		$(this).css('background-image', 'url(' + bg + ')');
-	});
-
-
-	/*------------------
-		Accordions
-	--------------------*/
-	$('.panel-link').on('click', function (e) {
-		$('.panel-link').parent('.panel-header').removeClass('active');
-		var $this = $(this).parent('.panel-header');
-		if (!$this.hasClass('active')) {
-			$this.addClass('active');
-		}
-		e.preventDefault();
-	});
-
-
-if($().circleProgress){
-
-	//Set progress circle 1
-	$("#progress1").circleProgress({
-		value: 0.75,
-		size: 146,
-		thickness: 3,
-		fill: "#979797",
-		emptyFill: "rgba(0, 0, 0, 0)"
-	});
-	//Set progress circle 2
-	$("#progress2").circleProgress({
-		value: 0.83,
-		size: 146,
-		thickness: 3,
-		fill: "#979797",
-		emptyFill: "rgba(0, 0, 0, 0)"
-	});
-	//Set progress circle 3
-	$("#progress3").circleProgress({
-		value: 0.25,
-		size: 146,
-		thickness: 3,
-		fill: "#979797",
-		emptyFill: "rgba(0, 0, 0, 0)"
-	});
-	//Set progress circle 4
-	$("#progress4").circleProgress({
-		value: 0.95,
-		size: 146,
-		thickness: 3,
-		fill: "#979797",
-		emptyFill: "rgba(0, 0, 0, 0)"
-	});
-}
-
-})(jQuery);
