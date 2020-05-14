@@ -1,0 +1,14 @@
+    <div class="row">
+          <div class="col-md-6" data-aos="fade-up">
+            <a class="project animsition-link" href="comingsoon">
+
+                <img src="images/inspireoaklandcover.jpg" class="img-fluid" >  
+
+              <div class="project-hover">
+                <div class="project-hover-inner">
+                  <h2>Inspire Oakland Competition</h2>
+                  <span>(Coming Soon)</span>
+                </div>
+              </div>
+            </a>
+          </div>
